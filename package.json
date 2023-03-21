@@ -1,0 +1,28 @@
+{
+  "name": "jeeny-js-sdk",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Jeeny Inc",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "homepage": "https://github.com/jeeny-os/jeeny-js-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeeny-os/jeeny-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeeny-os/jeeny-js-sdk/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.5",
+    "dotenv": "^16.0.3",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.10",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0"
+  }
+}
