@@ -3237,7 +3237,7 @@ export type FinancialAccessControls = {
   productPricing: AccessType;
 };
 
-export type GetItemStorageInventoryAreaLocationQuery = {
+export type GetItemStorageInventoryAreaLocationQueryInput = {
   /** Provide an aisle to narrow the search down to a single aisle. */
   aisle: Scalars['String'];
   /** Provide n bay to narrow the search down to a single bay. */
@@ -7215,7 +7215,7 @@ export type QueryGetItemHistoryArgs = {
 
 
 export type QueryGetItemStorageInventoryAreaLocationArgs = {
-  data: GetItemStorageInventoryAreaLocationQuery;
+  data: GetItemStorageInventoryAreaLocationQueryInput;
 };
 
 
@@ -10796,7 +10796,7 @@ export type GetItemHistoryQueryVariables = Exact<{
 export type GetItemHistoryQuery = { __typename?: 'Query', getItemHistory: Array<{ __typename?: 'InventoryHistoryRecord', addition: number, days: number, deduction: number, facilityId: string, itemId: string, ledger: string }> };
 
 export type GetItemStorageInventoryAreaLocationQueryVariables = Exact<{
-  data: GetItemStorageInventoryAreaLocationQuery;
+  data: GetItemStorageInventoryAreaLocationQueryInput;
 }>;
 
 
@@ -11524,7 +11524,7 @@ export type ResolversTypes = {
   FileUploadInput: FileUploadInput;
   FinancialAccessControls: ResolverTypeWrapper<FinancialAccessControls>;
   Float: ResolverTypeWrapper<Scalars['Float']>;
-  GetItemStorageInventoryAreaLocationQuery: GetItemStorageInventoryAreaLocationQuery;
+  GetItemStorageInventoryAreaLocationQueryInput: GetItemStorageInventoryAreaLocationQueryInput;
   GetKitTemplateBomInput: GetKitTemplateBomInput;
   HeadlessUser: ResolverTypeWrapper<HeadlessUser>;
   HeadlessUserInputUpdate: HeadlessUserInputUpdate;
@@ -11951,7 +11951,7 @@ export type ResolversParentTypes = {
   FileUploadInput: FileUploadInput;
   FinancialAccessControls: FinancialAccessControls;
   Float: Scalars['Float'];
-  GetItemStorageInventoryAreaLocationQuery: GetItemStorageInventoryAreaLocationQuery;
+  GetItemStorageInventoryAreaLocationQueryInput: GetItemStorageInventoryAreaLocationQueryInput;
   GetKitTemplateBomInput: GetKitTemplateBomInput;
   HeadlessUser: HeadlessUser;
   HeadlessUserInputUpdate: HeadlessUserInputUpdate;
@@ -31068,7 +31068,7 @@ export const GetItemHistoryDocument = gql`
 }
     `;
 export const GetItemStorageInventoryAreaLocationDocument = gql`
-    query getItemStorageInventoryAreaLocation($data: GetItemStorageInventoryAreaLocationQuery!) {
+    query getItemStorageInventoryAreaLocation($data: GetItemStorageInventoryAreaLocationQueryInput!) {
   getItemStorageInventoryAreaLocation(data: $data) {
     aisle
     arrivalDeliveryIds

@@ -27,6 +27,12 @@ export class Jeeny {
   public storageLocations;
   public suppliers;
   public supplierItems;
+  public companies;
+  public companyUsers;
+  public devices;
+  public operators;
+  public kiosks;
+  public teams;
 
   private apiKey: string;
   private apiUrl: string;
@@ -344,6 +350,54 @@ export class Jeeny {
       getSupplierItemsBySupplier: this.sdk.getSupplierItemsBySupplier,
       createSupplierItem: this.sdk.createSupplierItem,
       saveSupplierItem: this.sdk.saveSupplierItem,
+    };
+
+    this.companies = {
+      getCompany: this.sdk.getCompany,
+      getCompaniesByUser: this.sdk.getCompaniesByUser,
+      saveCompany: this.sdk.saveCompany,
+    };
+
+    this.companyUsers = {
+      getCompanyUser: this.sdk.getCompanyUser,
+      getCompanyUserAdmin: this.sdk.getCompanyUserAdmin,
+      getCompanyUsers: this.sdk.getCompanyUsers,
+      saveCompanyUser: this.sdk.saveCompanyUser,
+      saveCompanyUserAdmin: this.sdk.saveCompanyUserAdmin,
+      getCompanyUsersByTeamId: this.sdk.getCompanyUsersByTeamId,
+    };
+
+    this.devices = {
+      getDevice: this.sdk.getDevice,
+      getDeviceAccessToken: this.sdk.getDeviceAccessToken,
+      getDevices: this.sdk.getDevices,
+      deleteDevice: this.sdk.deleteDevice,
+      saveDevice: this.sdk.saveDevice,
+    };
+
+    this.operators = {
+      getOperator: this.sdk.getOperator,
+      getOperatorPinCode: this.sdk.getOperatorPinCode,
+      getOperators: this.sdk.getOperators,
+      getOperatorsByDevice: this.sdk.getOperatorsByDevice,
+      getOperatorsByTeamId: this.sdk.getOperatorsByTeamId,
+      createOperator: this.sdk.createOperator,
+      saveOperator: this.sdk.saveOperator,
+    };
+
+    this.kiosks = {
+      deleteKiosk: this.sdk.deleteKiosk,
+      saveKiosk: this.sdk.saveKiosk,
+      getKiosk: this.sdk.getKiosk,
+      getKiosks: this.sdk.getKiosks,
+    };
+
+    this.teams = {
+      getTeam: this.sdk.getTeam,
+      createTeam: this.sdk.createTeam,
+      getTeams: this.sdk.getTeams,
+      getTeamDetails: this.sdk.getTeamDetails,
+      saveTeam: this.sdk.saveTeam,
     };
   }
 

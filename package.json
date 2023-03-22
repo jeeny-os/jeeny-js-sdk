@@ -1,11 +1,15 @@
 {
-  "name": "jeeny-js-sdk",
-  "version": "0.0.1",
-  "main": "index.js",
-  "author": "Jeeny Inc",
+  "name": "@jeeny/jeeny-js-sdk",
+  "version": "0.0.4",
+  "main": "/lib/index.js",
+  "author": "Jeeny",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "examples:create-item": "ts-node examples/create-item"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "homepage": "https://github.com/jeeny-os/jeeny-js-sdk#readme",
   "repository": {
