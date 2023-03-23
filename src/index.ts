@@ -9,9 +9,13 @@ interface JeenyParams {
 }
 
 export class Jeeny {
+  public apps;
   public arrivals;
   public bids;
+  public companies;
+  public companyUsers;
   public departures;
+  public devices;
   public dynamicContainers;
   public events;
   public facilities;
@@ -21,17 +25,17 @@ export class Jeeny {
   public inventoryRecords;
   public items;
   public itemGroups;
+  public itemStorageInventoryAreaLocation;
+  public itemStorageInventoryAreaRule;
+  public kiosks;
   public kits;
+  public operators;
   public products;
-  public staticItemLocations;
-  public storageLocations;
+  public storageInventory;
+  public storageInventoryAreaLocation;
+  public storageInventoryAreaRule;
   public suppliers;
   public supplierItems;
-  public companies;
-  public companyUsers;
-  public devices;
-  public operators;
-  public kiosks;
   public teams;
 
   private apiKey: string;
@@ -64,15 +68,10 @@ export class Jeeny {
 
     this.sdk = getSdk(this.client);
 
-    this.items = {
-      getItem: this.sdk.getItem,
-      getItemHistory: this.sdk.getItemHistory,
-      getItemsHistory: this.sdk.getItemsHistory,
-      getItemDetails: this.sdk.getItemDetails,
-      getItems: this.sdk.getItems,
-      getItemsWithPrimarySupplier: this.sdk.getItemsWithPrimarySupplier,
-      createItem: this.sdk.createItem,
-      saveItem: this.sdk.saveItem,
+    this.apps = {
+      getInstalledOfficialApp: this.sdk.getInstalledOfficialApp,
+      getCustomApp: this.sdk.getCustomApp,
+      getApps: this.sdk.getApps,
     };
 
     this.arrivals = {
@@ -133,6 +132,21 @@ export class Jeeny {
       getBidsBySupplier: this.sdk.getBidsBySupplier,
     };
 
+    this.companies = {
+      getCompany: this.sdk.getCompany,
+      getCompaniesByUser: this.sdk.getCompaniesByUser,
+      saveCompany: this.sdk.saveCompany,
+    };
+
+    this.companyUsers = {
+      getCompanyUser: this.sdk.getCompanyUser,
+      getCompanyUserAdmin: this.sdk.getCompanyUserAdmin,
+      getCompanyUsers: this.sdk.getCompanyUsers,
+      saveCompanyUser: this.sdk.saveCompanyUser,
+      saveCompanyUserAdmin: this.sdk.saveCompanyUserAdmin,
+      getCompanyUsersByTeamId: this.sdk.getCompanyUsersByTeamId,
+    };
+
     this.departures = {
       getDeparture: this.sdk.getDeparture,
       getDepartures: this.sdk.getDepartures,
@@ -160,6 +174,14 @@ export class Jeeny {
       deleteDeparturePickLineItem: this.sdk.deleteDeparturePickLineItem,
       pickStorageLocationForDeparture: this.sdk.pickStorageLocationForDeparture,
       saveDeparturePickList: this.sdk.saveDeparturePickList,
+    };
+
+    this.devices = {
+      getDevice: this.sdk.getDevice,
+      getDeviceAccessToken: this.sdk.getDeviceAccessToken,
+      getDevices: this.sdk.getDevices,
+      deleteDevice: this.sdk.deleteDevice,
+      saveDevice: this.sdk.saveDevice,
     };
 
     this.dynamicContainers = {
@@ -251,12 +273,53 @@ export class Jeeny {
       getInventoryLogs: this.sdk.getInventoryLogs,
     };
 
+    this.items = {
+      getItem: this.sdk.getItem,
+      getItemHistory: this.sdk.getItemHistory,
+      getItemsHistory: this.sdk.getItemsHistory,
+      getItemDetails: this.sdk.getItemDetails,
+      getItems: this.sdk.getItems,
+      getItemsWithPrimarySupplier: this.sdk.getItemsWithPrimarySupplier,
+      createItem: this.sdk.createItem,
+      saveItem: this.sdk.saveItem,
+    };
+
     this.itemGroups = {
       getItemGroupDetails: this.sdk.getItemGroupDetails,
       getItemGroupsWithItems: this.sdk.getItemGroupsWithItems,
       createItemGroup: this.sdk.createItemGroup,
       saveItemGroup: this.sdk.saveItemGroup,
       deleteItemGroup: this.sdk.deleteItemGroup,
+    };
+
+    this.itemStorageInventoryAreaLocation = {
+      getItemStorageInventoryAreaLocation:
+        this.sdk.getItemStorageInventoryAreaLocation,
+      createItemStorageInventoryAreaLocation:
+        this.sdk.createItemStorageInventoryAreaLocation,
+      handleItemStorageInventoryAreaLocation:
+        this.sdk.handleItemStorageInventoryAreaLocation,
+      updateItemStorageInventoryAreaLocation:
+        this.sdk.updateItemStorageInventoryAreaLocation,
+      deleteItemStorageInventoryAreaLocation:
+        this.sdk.deleteItemStorageInventoryAreaLocation,
+    };
+
+    this.itemStorageInventoryAreaRule = {
+      getItemStorageInventoryAreaRule: this.sdk.getItemStorageInventoryAreaRule,
+      getItemStorageInventoryAreaRules:
+        this.sdk.getItemStorageInventoryAreaRules,
+      createItemStorageInventoryAreaRule:
+        this.sdk.createItemStorageInventoryAreaRule,
+      saveItemStorageInventoryAreaRule:
+        this.sdk.saveItemStorageInventoryAreaRule,
+    };
+
+    this.kiosks = {
+      deleteKiosk: this.sdk.deleteKiosk,
+      saveKiosk: this.sdk.saveKiosk,
+      getKiosk: this.sdk.getKiosk,
+      getKiosks: this.sdk.getKiosks,
     };
 
     this.kits = {
@@ -282,6 +345,16 @@ export class Jeeny {
       getImagesForKitTemplate: this.sdk.getImagesForKitTemplate,
     };
 
+    this.operators = {
+      getOperator: this.sdk.getOperator,
+      getOperatorPinCode: this.sdk.getOperatorPinCode,
+      getOperators: this.sdk.getOperators,
+      getOperatorsByDevice: this.sdk.getOperatorsByDevice,
+      getOperatorsByTeamId: this.sdk.getOperatorsByTeamId,
+      createOperator: this.sdk.createOperator,
+      saveOperator: this.sdk.saveOperator,
+    };
+
     this.products = {
       getProduct: this.sdk.getProduct,
       getProducts: this.sdk.getProducts,
@@ -295,27 +368,13 @@ export class Jeeny {
       getExternalProductsByProductId: this.sdk.getExternalProductsByProductId,
     };
 
-    this.staticItemLocations = {
-      getItemStorageInventoryAreaLocation:
-        this.sdk.getItemStorageInventoryAreaLocation,
-      createItemStorageInventoryAreaLocation:
-        this.sdk.createItemStorageInventoryAreaLocation,
-      handleItemStorageInventoryAreaLocation:
-        this.sdk.handleItemStorageInventoryAreaLocation,
-      updateItemStorageInventoryAreaLocation:
-        this.sdk.updateItemStorageInventoryAreaLocation,
-      deleteItemStorageInventoryAreaLocation:
-        this.sdk.deleteItemStorageInventoryAreaLocation,
-      getItemStorageInventoryAreaRule: this.sdk.getItemStorageInventoryAreaRule,
-      getItemStorageInventoryAreaRules:
-        this.sdk.getItemStorageInventoryAreaRules,
-      createItemStorageInventoryAreaRule:
-        this.sdk.createItemStorageInventoryAreaRule,
-      saveItemStorageInventoryAreaRule:
-        this.sdk.saveItemStorageInventoryAreaRule,
+    this.storageInventory = {
+      getStorageInventoryByLocation: this.sdk.getStorageInventoryByLocation,
+      getStorageInventoryByPayload: this.sdk.getStorageInventoryByPayload,
+      pickStorageLocation: this.sdk.pickStorageLocation,
     };
 
-    this.storageLocations = {
+    this.storageInventoryAreaLocation = {
       getStorageInventoryAreaLocation: this.sdk.getStorageInventoryAreaLocation,
       getStorageInventoryAreaLocations:
         this.sdk.getStorageInventoryAreaLocations,
@@ -325,15 +384,15 @@ export class Jeeny {
         this.sdk.saveStorageInventoryAreaLocation,
       deleteStorageInventoryAreaLocation:
         this.sdk.deleteStorageInventoryAreaLocation,
+      getStorageInventoryAreaLocationsPayload:
+        this.sdk.getStorageInventoryAreaLocationsPayload,
+    };
+
+    this.storageInventoryAreaRule = {
       getStorageInventoryAreaRule: this.sdk.getStorageInventoryAreaRule,
       getStorageInventoryAreaRules: this.sdk.getStorageInventoryAreaRules,
       createStorageInventoryAreaRule: this.sdk.createStorageInventoryAreaRule,
       updateStorageInventoryAreaRule: this.sdk.updateStorageInventoryAreaRule,
-      getStorageInventoryByLocation: this.sdk.getStorageInventoryByLocation,
-      getStorageInventoryByPayload: this.sdk.getStorageInventoryByPayload,
-      getStorageInventoryAreaLocationsPayload:
-        this.sdk.getStorageInventoryAreaLocationsPayload,
-      pickStorageLocation: this.sdk.pickStorageLocation,
     };
 
     this.suppliers = {
@@ -350,46 +409,6 @@ export class Jeeny {
       getSupplierItemsBySupplier: this.sdk.getSupplierItemsBySupplier,
       createSupplierItem: this.sdk.createSupplierItem,
       saveSupplierItem: this.sdk.saveSupplierItem,
-    };
-
-    this.companies = {
-      getCompany: this.sdk.getCompany,
-      getCompaniesByUser: this.sdk.getCompaniesByUser,
-      saveCompany: this.sdk.saveCompany,
-    };
-
-    this.companyUsers = {
-      getCompanyUser: this.sdk.getCompanyUser,
-      getCompanyUserAdmin: this.sdk.getCompanyUserAdmin,
-      getCompanyUsers: this.sdk.getCompanyUsers,
-      saveCompanyUser: this.sdk.saveCompanyUser,
-      saveCompanyUserAdmin: this.sdk.saveCompanyUserAdmin,
-      getCompanyUsersByTeamId: this.sdk.getCompanyUsersByTeamId,
-    };
-
-    this.devices = {
-      getDevice: this.sdk.getDevice,
-      getDeviceAccessToken: this.sdk.getDeviceAccessToken,
-      getDevices: this.sdk.getDevices,
-      deleteDevice: this.sdk.deleteDevice,
-      saveDevice: this.sdk.saveDevice,
-    };
-
-    this.operators = {
-      getOperator: this.sdk.getOperator,
-      getOperatorPinCode: this.sdk.getOperatorPinCode,
-      getOperators: this.sdk.getOperators,
-      getOperatorsByDevice: this.sdk.getOperatorsByDevice,
-      getOperatorsByTeamId: this.sdk.getOperatorsByTeamId,
-      createOperator: this.sdk.createOperator,
-      saveOperator: this.sdk.saveOperator,
-    };
-
-    this.kiosks = {
-      deleteKiosk: this.sdk.deleteKiosk,
-      saveKiosk: this.sdk.saveKiosk,
-      getKiosk: this.sdk.getKiosk,
-      getKiosks: this.sdk.getKiosks,
     };
 
     this.teams = {
