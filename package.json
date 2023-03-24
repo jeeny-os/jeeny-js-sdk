@@ -1,7 +1,7 @@
 {
   "name": "@jeeny/jeeny-js-sdk",
   "description": "JavaScript SDK for the Jeeny API (inventory, procurement, manufacturing)",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "/lib/index.js",
   "author": "Jeeny",
   "license": "MIT",
