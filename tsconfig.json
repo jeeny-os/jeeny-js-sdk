@@ -3,9 +3,10 @@
     "target": "es2018",
     "module": "commonjs",
     "declaration": true,
+    "esModuleInterop": true,
     "outDir": "./lib",
     "strict": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
