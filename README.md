@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to jeeny-js-sdk 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.10-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.11-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/jeeny-os/jeeny-js-sdk#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
